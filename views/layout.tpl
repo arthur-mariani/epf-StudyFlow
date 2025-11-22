@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Bottle - {{title or 'Sistema'}}</title>
+    <title>StudyFlow</title>
     <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025, Meu Projeto. Todos os direitos reservados.</p>
+        <p>&copy; 2025, StudyFlow. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Scripts JS no final do body -->
