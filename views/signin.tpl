@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro - StudyFlow</title>
+    <title>Cadastre-se - StudyFlow</title>
+    <link rel="icon" href="/static/img/favicon.ico?v=1" type="image/x-icon">
 
     <style>
         body {
@@ -91,10 +92,10 @@
                 {{success}}
             </div>
             <script>
-                // Redireciona para a home após 3 segundos
+                // Redireciona para a home após 2 segundos
                 setTimeout(function() {
                     window.location.href = "/";
-                }, 3000);
+                }, 2000);
             </script>
         % end
 

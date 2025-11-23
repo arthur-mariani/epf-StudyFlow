@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyFlow</title>
     <link rel="stylesheet" href="/static/css/style.css" />
-    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/img/favicon.ico?v=1" type="image/x-icon">
 </head>
 <body>
 
