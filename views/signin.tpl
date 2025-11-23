@@ -80,15 +80,24 @@
 
         <img src="/static/img/logo3.png" alt="StudyFlow Logo" class="logo-img">
 
+        % if defined('error') and error:
+            <div style="color: #e74c3c; background-color: #fadbd8; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; border: 1px solid #e74c3c;">
+                {{error}}
+            </div>
+        % end
+
         <form action="/signin" method="POST">
             <input id="input-name" class="input-field" type="text" name="nome" placeholder="Nome completo" required>
-            <input id="input-email" class="input-field" type="email" name="gmail" placeholder="Email" required>
+            
+            <input id="input-email" class="input-field" type="text" name="gmail" placeholder="Email" required>
+            
             <input id="input-password" class="input-field" type="password" name="senha" placeholder="Senha" required>
             <input id="input-password2" class="input-field" type="password" name="senha2" placeholder="Confirmar Senha" required>
             <button class="signup-btn" type="submit">Cadastrar-se</button>
         </form>
 
     </div>
+
 </div>
 
 </body>
