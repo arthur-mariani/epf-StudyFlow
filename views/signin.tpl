@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro</title>
+    <title>Cadastro - StudyFlow</title>
 
     <style>
         body {
@@ -30,10 +30,20 @@
             border-radius: 8px;
         }
 
+       .logo-img {
+            width: 220px;
+            height: auto;
+            margin-bottom: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .title {
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 25px;
+            color: #247B7B; /* Usando a cor da sua marca no título também */
         }
 
         .input-field {
@@ -49,7 +59,7 @@
 
         .signup-btn {
             width: 100%;
-            background-color: #247B7B;
+            background-color: #247B7B; /* Sua cor de marca */
             border: none;
             padding: 12px;
             border-radius: 5px;
@@ -68,24 +78,14 @@
 <div class="container">
     <div class="box">
 
-        <div class="title">Cadastre-se</div>
+        <img src="/static/img/logo3.png" alt="StudyFlow Logo" class="logo-img">
 
         <form action="/signin" method="POST">
-
-            <input id="input-name" class="input-field" type="text" name="nome"
-                placeholder="Nome completo" required>
-
-            <input id="input-email" class="input-field" type="text" name="gmail"
-                placeholder="Email" required>
-
-            <input id="input-password" class="input-field" type="password" name="senha"
-                placeholder="Senha" required>
-
-            <input id="input-password2" class="input-field" type="password" name="senha2"
-                placeholder="Confirmar Senha" required>
-
+            <input id="input-name" class="input-field" type="text" name="nome" placeholder="Nome completo" required>
+            <input id="input-email" class="input-field" type="email" name="gmail" placeholder="Email" required>
+            <input id="input-password" class="input-field" type="password" name="senha" placeholder="Senha" required>
+            <input id="input-password2" class="input-field" type="password" name="senha2" placeholder="Confirmar Senha" required>
             <button class="signup-btn" type="submit">Cadastrar-se</button>
-
         </form>
 
     </div>
