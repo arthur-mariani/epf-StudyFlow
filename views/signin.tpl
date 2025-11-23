@@ -86,15 +86,33 @@
             </div>
         % end
 
+        % if defined('success') and success:
+            <div style="color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;">
+                {{success}}
+            </div>
+            <script>
+                // Redireciona para a home após 3 segundos
+                setTimeout(function() {
+                    window.location.href = "/";
+                }, 3000);
+            </script>
+        % end
+
         <form action="/signin" method="POST">
-            <input id="input-name" class="input-field" type="text" name="nome" placeholder="Nome completo" required>
+            <input id="input-name" class="input-field" type="text" name="nome" placeholder="Nome completo" value="{{request.forms.get('nome') or ''}}" required>
             
-            <input id="input-email" class="input-field" type="text" name="gmail" placeholder="Email" required>
+            <input id="input-email" class="input-field" type="text" name="gmail" placeholder="Email" value="{{request.forms.get('gmail') or ''}}" required>
             
             <input id="input-password" class="input-field" type="password" name="senha" placeholder="Senha" required>
+
             <input id="input-password2" class="input-field" type="password" name="senha2" placeholder="Confirmar Senha" required>
+
             <button class="signup-btn" type="submit">Cadastrar-se</button>
         </form>
+
+        <p style="text-align: center; font-size: 12px; margin-top: 15px;">
+            <a href="/" style="text-decoration: none; color: #247B7B;">Voltar para Home</a>
+        </p>
 
     </div>
 
