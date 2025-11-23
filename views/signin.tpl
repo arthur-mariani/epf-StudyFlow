@@ -71,6 +71,18 @@
             margin-top: 10px;
             box-sizing: border-box;
         }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 10px 0;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -118,6 +130,10 @@
     </div>
 
 </div>
+
+<footer>
+        <p>&copy; 2025, StudyFlow. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
