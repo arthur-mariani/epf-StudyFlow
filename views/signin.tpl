@@ -104,9 +104,9 @@
                 {{success}}
             </div>
             <script>
-                // Redireciona para a home após 2 segundos
+                // Redireciona para a login após 2 segundos
                 setTimeout(function() {
-                    window.location.href = "/";
+                    window.location.href = "/login";
                 }, 2000);
             </script>
         % end
