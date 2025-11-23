@@ -1,4 +1,4 @@
-from bottle import Bottle, request
+from bottle import request, redirect, Bottle
 from .base_controller import BaseController
 from services.signin_service import SigninService
 
@@ -25,8 +25,8 @@ class SigninController(BaseController):
         self.app.route('/signin', method='POST', callback=self.registrar_usuario)
 
 
-    def resultado(self, error_message=None):
-        return self.render('signin', action="/signin", error=error_message)
+    def resultado(self, error_message=None, success_message=None):
+        return self.render('signin', action="/signin", error=error_message, success=success_message, request=request)
 
 
     def registrar_usuario(self):
@@ -53,7 +53,7 @@ class SigninController(BaseController):
             return self.resultado(f"Erro: {mensagem_final}")
 
         self.signin_service.cadastrar_usuario(nome, gmail, senha)
-        return self.resultado("Usuário cadastrado com sucesso!")
+        return self.resultado(success_message="Usuário cadastrado com sucesso! aguarde ser redirecionado.")
 
 signin_routes = Bottle()
 signin_controller = SigninController(signin_routes)
