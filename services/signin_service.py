@@ -9,7 +9,11 @@ class SigninService:
         senha_hash = hashlib.sha256(senha.encode()).hexdigest()
 
         todos = self.dao.listar()
-        novo_id = len(todos) + 1
+        
+        if not todos:
+            novo_id = 1
+        else:
+            novo_id = max(u["id"] for u in todos) + 1
 
         usuario = Usuario(
             id=novo_id,
