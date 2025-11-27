@@ -39,7 +39,7 @@ class SigninController(BaseController):
 
         if any(char.isdigit() for char in nome):
             erros.append("O nome não pode conter números.")
-            
+
         if " " in gmail:
             erros.append("O email não pode conter espaços.")
 
@@ -49,6 +49,16 @@ class SigninController(BaseController):
 
         if senha != senha2:
             erros.append("As senhas não coincidem.")
+
+        if len(senha) < 8:
+            erros.append("A senha deve ter no mínimo 8 caracteres.")
+
+        if not any(char.isdigit() for char in senha):
+            erros.append("A senha deve conter pelo menos um número.")
+
+        caracteres_especiais = "!@#$%^&*()-+=_"
+        if not any(char in caracteres_especiais for char in senha):
+            erros.append("A senha deve conter um caractere especial (ex: @, #, !).")
 
         if len(erros) > 0:
 
