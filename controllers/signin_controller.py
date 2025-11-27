@@ -37,6 +37,9 @@ class SigninController(BaseController):
 
         erros = []
 
+        if any(char.isdigit() for char in nome):
+            erros.append("O nome não pode conter números.")
+            
         if " " in gmail:
             erros.append("O email não pode conter espaços.")
 
