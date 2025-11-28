@@ -1,4 +1,4 @@
-from bottle import request, Bottle
+from bottle import request, Bottle, response
 from .base_controller import BaseController
 from services.login_service import LoginService
 
@@ -29,7 +29,8 @@ class LoginController(BaseController):
         login_ok = self.login_service.validar_login(email_input, senha_input)
 
         if login_ok:
-            return self.realizar_login(success_message="Login realizado com sucesso! Redirecionando...")
+            response.set_cookie("usuario_logado", email_input, secret='chave_secreta_do_projeto')
+            return self.redirect('/home')
         else:
             return self.realizar_login(error_message="Email ou senha incorretos.")
 
