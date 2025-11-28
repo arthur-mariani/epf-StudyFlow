@@ -29,6 +29,7 @@
             text-align: center;
             background-color: #fff;
             border-radius: 8px;
+            position: relative;
         }
 
        .logo-img {
@@ -83,6 +84,40 @@
             padding: 10px 0;
             background-color: white;
         }
+
+        .password-rules {
+            font-size: 12px;
+            color: #555;
+            text-align: left;
+            background-color: #f0f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            border-left: 3px solid #247B7B;
+        
+        display: none;       
+            position: absolute; 
+            width: 300px;       
+            z-index: 100;         
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+
+        margin-top: -5px; 
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .password-rules ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+        }
+        
+        .password-rules li {
+            margin-bottom: 2px;
+        }
+       
+       #input-password:focus + .password-rules {
+            display: block;
+        }
     </style>
 </head>
 
@@ -98,6 +133,8 @@
                 {{error}}
             </div>
         % end
+
+        
 
         % if defined('success') and success:
             <div style="color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;">
@@ -117,7 +154,14 @@
             <input id="input-email" class="input-field" type="text" name="gmail" placeholder="Email" value="{{request.forms.get('gmail') or ''}}" required>
             
             <input id="input-password" class="input-field" type="password" name="senha" placeholder="Senha" required>
-
+            <div class="password-rules">
+                <strong>A senha deve conter:</strong>
+                <ul>
+                    <li>Mínimo de 8 caracteres</li>
+                    <li>Pelo menos 1 número</li>
+                    <li>Pelo menos 1 caractere especial (!@#$...)</li>
+                </ul>
+            </div>
             <input id="input-password2" class="input-field" type="password" name="senha2" placeholder="Confirmar Senha" required>
 
             <button class="signup-btn" type="submit">Cadastrar-se</button>
