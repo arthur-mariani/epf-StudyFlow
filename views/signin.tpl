@@ -45,7 +45,7 @@
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 25px;
-            color: #247B7B; /* Usando a cor da sua marca no título também */
+            color: #247B7B;
         }
 
         .input-field {
@@ -61,7 +61,7 @@
 
         .signup-btn {
             width: 100%;
-            background-color: #247B7B; /* Sua cor de marca */
+            background-color: #247B7B;
             border: none;
             padding: 12px;
             border-radius: 5px;
@@ -141,10 +141,10 @@
                 {{success}}
             </div>
             <script>
-                // Redireciona para a login após 2 segundos
+                // Redireciona para a login após 1,3 segundos
                 setTimeout(function() {
                     window.location.href = "/login";
-                }, 2000);
+                }, 1300);
             </script>
         % end
 
@@ -168,7 +168,7 @@
         </form>
 
         <p style="text-align: center; font-size: 12px; margin-top: 15px;">
-            <a href="/" style="text-decoration: none; color: #247B7B;">Voltar para Home</a>
+            <a href="/" style="text-decoration: none; color: #247B7B;">Voltar para a página de Login</a>
         </p>
 
     </div>

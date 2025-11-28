@@ -143,10 +143,10 @@
                 {{success}}
             </div>
             <script>
-                // Redireciona para a home após 2 segundos
+                // Redireciona para a home após 1,3 segundos
                 setTimeout(function() {
                     window.location.href = "/users";
-                }, 2000);
+                }, 1300);
             </script>
         % end
 

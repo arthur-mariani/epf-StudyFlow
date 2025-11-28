@@ -1,4 +1,4 @@
-from bottle import request, redirect, Bottle
+from bottle import request, Bottle
 from .base_controller import BaseController
 from services.signin_service import SigninService
 
@@ -17,6 +17,7 @@ class SigninController(BaseController):
         super().__init__(app)
 
         self.signin_service = SigninService()
+        self.dominios_validos = DOMINIOS_VALIDOS
         self.setup_routes()
 
 
@@ -26,7 +27,13 @@ class SigninController(BaseController):
 
 
     def resultado(self, error_message=None, success_message=None):
-        return self.render('signin', action="/signin", error=error_message, success=success_message, request=request)
+        return self.render(
+            'signin',
+            action="/signin",
+            error=error_message,
+            success=success_message,
+            request=request
+        )
 
 
     def registrar_usuario(self):
@@ -35,38 +42,19 @@ class SigninController(BaseController):
         senha = request.forms.get("senha")
         senha2 = request.forms.get("senha2")
 
-        erros = []
+        resultado = self.signin_service.registrar_usuario(
+            nome=nome,
+            gmail=gmail,
+            senha=senha,
+            senha2=senha2,
+            dominios_validos=self.dominios_validos
+        )
 
-        if any(char.isdigit() for char in nome):
-            erros.append("O nome não pode conter números.")
+        if resultado.get("erro"):
+            return self.resultado(error_message=resultado["erro"])
 
-        if " " in gmail:
-            erros.append("O email não pode conter espaços.")
+        return self.resultado(success_message=resultado["sucesso"])
 
-        email_valido = any(gmail.endswith(dom) for dom in DOMINIOS_VALIDOS)
-        if not email_valido:
-             erros.append("Domínio inválido! Use: gmail, hotmail, outlook, yahoo ou live.")
-
-        if senha != senha2:
-            erros.append("As senhas não coincidem.")
-
-        if len(senha) < 8:
-            erros.append("A senha deve ter no mínimo 8 caracteres.")
-
-        if not any(char.isdigit() for char in senha):
-            erros.append("A senha deve conter pelo menos um número.")
-
-        caracteres_especiais = "!@#$%^&*()-+=_"
-        if not any(char in caracteres_especiais for char in senha):
-            erros.append("A senha deve conter um caractere especial (ex: @, #, !).")
-
-        if len(erros) > 0:
-
-            mensagem_final = " | ".join(erros)
-            return self.resultado(f"Erro: {mensagem_final}")
-
-        self.signin_service.cadastrar_usuario(nome, gmail, senha)
-        return self.resultado(success_message="Usuário cadastrado com sucesso! aguarde ser redirecionado.")
 
 signin_routes = Bottle()
 signin_controller = SigninController(signin_routes)
