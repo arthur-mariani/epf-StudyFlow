@@ -6,11 +6,11 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 DATA_PATH = os.path.join(DATA_DIR, "sessoes.json")
 
 class Sessao:
-    def __init__(self, id, usuario_gmail, segundos, materia, data_hora=None):
+    def __init__(self, id, usuario_gmail, segundos, modo, data_hora=None):
         self.id = id
         self.usuario_gmail = usuario_gmail
         self.segundos = segundos
-        self.materia = materia
+        self.modo = modo
         self.data_hora = data_hora or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 class SessaoDAO:

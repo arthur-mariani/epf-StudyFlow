@@ -4,7 +4,7 @@ class SessaoService:
     def __init__(self):
         self.sessao_dao = SessaoDAO()
 
-    def salvar_tempo(self, usuario_gmail, segundos, materia):
+    def salvar_tempo(self, usuario_gmail, segundos, modo):
 
         todas = self.sessao_dao.listar_todos()
         if todas:
@@ -17,7 +17,7 @@ class SessaoService:
             id=novo_id,
             usuario_gmail=usuario_gmail,
             segundos=int(segundos),
-            materia=materia
+            modo=modo
         )
 
         self.sessao_dao.criar(nova_sessao)

@@ -495,7 +495,7 @@
                 },
                 body: JSON.stringify({
                     segundos: totalEstudadoSessao,
-                    materia: nomeModo
+                    modo: nomeModo
                 })
             })
             .then(r => r.json())
