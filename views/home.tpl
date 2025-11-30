@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Home - StudyFlow</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
         body {
-            background-color: #ffffff;
+            background-color: #f4f7f6;
             color: #000;
             display: flex;
         }
 
         .sidebar {
-            width: 260px;
-            background: #f7f7f7;
+            width: 290px;
+            background: #fff;
             border-right: 1px solid #ddd;
             position: fixed;
-            left: -260px;
+            left: -290px;
             top: 0;
             height: 100%;
-            padding: 25px;
+            padding: 20px;
             transition: 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -43,41 +44,62 @@
             justify-content: center;
             cursor: pointer;
             transition: 0.2s;
+            color: #555; 
+            font-size: 28px;
         }
 
         .sidebar-close:hover {
-            background-color: rgba(0,0,0,0.1);
+            background-color: #e0f2f1; 
+            color: #247B7B; 
         }
 
         .sidebar-logo {
             position: absolute;
-            top: 15px;
+            top: 12px;
             left: 75px;
             height: 45px;
         }
 
-        .menu a, .menu-bottom a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 0;
-            text-decoration: none;
-            font-size: 16px;
-            color: #000;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
+        .menu-item { 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            padding: 12px 15px; 
+            color: #555; 
+            top: 50px; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            margin-bottom: 8px; 
+            transition: 0.3s; 
+            font-size: 16px; 
+            }
 
-        .menu a:hover,
-        .menu-bottom a:hover {
-            background-color: rgba(0,0,0,0.08);
-            padding-left: 8px;
-        }
+        .menu-item:hover { 
+            background-color: #e0f2f1; 
+            color: #247B7B; 
+            }
 
-        .menu img, .menu-bottom img {
-            width: 22px;
-            height: 22px;
-        }
+        .menu-item.active { 
+            background-color: #247B7B; 
+            color: white; 
+            }
+
+        .menu-item i { 
+            margin-right: 12px; 
+            width: 20px; 
+            text-align: center; 
+            }
+
+        .logout { 
+            position: relative; 
+            top: 10px; margin-top: 
+            auto; color: #e74c3c; 
+            }
+
+        .logout:hover { 
+            background-color: #fadbd8; 
+            color: #c0392b; 
+            }
 
         .topbar {
             width: 100%;
@@ -102,15 +124,13 @@
             align-items: center;
             justify-content: center;
             transition: 0.2s;
+            color: #555; 
+            font-size: 28px;
         }
 
         .menu-btn:hover {
-            background-color: rgba(0,0,0,0.1);
-        }
-
-        .menu-btn img {
-            width: 28px;
-            height: 28px;
+            background-color: #e0f2f1; 
+            color: #247B7B; 
         }
 
         .logo {
@@ -120,7 +140,7 @@
         .username {
             margin-left: auto;
             font-size: 15px;
-            color: #333;
+            color: #555;
         }
 
         .content {
@@ -129,7 +149,11 @@
             width: 100%;
         }
 
-        h1 { color: #247B7B; margin-bottom: 10px; }
+        h1 { 
+            color: #247B7B; 
+            margin-bottom: 10px; 
+            text-align: center
+            }
 
         .dashboard-container {
             display: grid;
@@ -211,6 +235,18 @@
             margin-right: 10px;
         }
 
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 10px 0;
+            background-color: #f4f7f6;
+        }
+
     </style>
 </head>
 <body>
@@ -218,33 +254,19 @@
     <div class="sidebar" id="sidebar">
 
         <div class="sidebar-close" onclick="toggleSidebar()">
-            <img src="/static/img/Menulateral.png" style="transform: rotate(180deg); width:26px; height:26px;">
+            <i class="fas fa-bars"></i>
         </div>
 
         <img src="/static/img/Logo2.png" class="sidebar-logo">
 
-        <div class="menu" style="margin-top:50px;">
-            <a href="/estatisticas" class="menu-item">
-                <img src="/static/img/Estatisticas.png" alt="Estatísticas">
-                Estatísticas
-            </a>
-            <a href="/configuracoes" class="menu-item">
-                <img src="/static/img/Engrenagem.png" alt="Configurações">
-                Configurações
-            </a>
-        </div>
-
-        <div class="menu-bottom">
-            <a href="/logout">
-                <img src="/static/img/Logout.png" alt="Logout">
-                Logout
-            </a>
-        </div>
+        <a href="/estatisticas" class="menu-item"><i class="fas fa-chart-bar"></i> Estatísticas</a>
+        <a href="/configuracoes" class="menu-item"><i class="fas fa-cog"></i> Configurações</a>
+        <a href="/logout" class="menu-item logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
 
     <div class="topbar">
         <div class="menu-btn" onclick="toggleSidebar()">
-            <img src="/static/img/Menulateral.png" alt="Menu">
+            <i class="fas fa-bars"></i>
         </div>
 
         <img src="/static/img/Logo2.png" alt="Logo" class="logo">
@@ -289,7 +311,7 @@
             </div>
 
             <div class="card">
-                <h3>🏆 Ranking Semanal</h3>
+                <h3>Ranking Semanal</h3>
                 <ul class="ranking-list">
                     <li class="ranking-item">
                         <div><span class="rank-pos">1º</span> Ana Silva</div>
@@ -522,6 +544,10 @@
         document.getElementById('sidebar').classList.toggle('open');
     }
 </script>
+
+<footer>
+        <p>&copy; 2025, StudyFlow. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
