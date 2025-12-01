@@ -89,28 +89,31 @@ EPF-STUDYFLOW/
 
 ## 🔧 Como Rodar o Projeto
 
-# 1. Clone o repositório para a sua máquina
+```
+1. Clone o repositório para a sua máquina
 git clone https://github.com/arthur-mariani/epf-StudyFlow.git
 
-# 2. Navegue até a pasta do projeto
+2. Navegue até a pasta do projeto
 cd epf-StudyFlow
 
-# 3. Crie um ambiente virtual
+3. Crie um ambiente virtual
 python -m venv venv
 
-# 4. Ative o ambiente virtual
-# No Windows (CMD):
+4. Ative o ambiente virtual
+No Windows (CMD):
 venv\\Scripts\\activate
-# No macOS/Linux:
+
+No macOS/Linux:
 source venv/bin/activate
 
-# 5. Instale as dependências
+5. Instale as dependências
 pip install -r requirements.txt
 
-# 6. Delete qualquer base de dados antiga (se existir) para garantir uma estrutura limpa e execute a aplicação. O banco será criado automaticamente.
+6. Delete qualquer base de dados antiga (se existir) para garantir uma estrutura limpa e execute a aplicação. O banco será criado automaticamente.
 python main.py
 
-# 7. Abra o seu navegador e acesse http://localhost:8080
+7. Abra o seu navegador e acesse http://localhost:8080
+```
 
 ---
 
@@ -124,7 +127,9 @@ python main.py
 
 ---
 
-👥 Autores
-[Arthur Mariani de Andrade da Cruz]
-[Matheus Rodrigues Pontes]
-[Lucas Araújo Lima]
+```
+👥 Autores  
+[Arthur Mariani de Andrade da Cruz]  
+[Matheus Rodrigues Pontes]  
+[Lucas Araújo Lima]  
+```
