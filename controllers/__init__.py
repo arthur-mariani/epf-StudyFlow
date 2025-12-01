@@ -4,6 +4,7 @@ from controllers.signin_controller import signin_routes
 from controllers.login_controller import login_routes
 from controllers.home_controller import home_routes
 from .settings_controller import settings_controller
+from controllers.statistics_controller import statistics_routes
 
 def init_controllers(app: Bottle):
     app.merge(user_routes)
@@ -11,3 +12,4 @@ def init_controllers(app: Bottle):
     app.merge(login_routes)
     app.merge(home_routes)
     app.merge(settings_controller)
+    app.merge(statistics_routes)
