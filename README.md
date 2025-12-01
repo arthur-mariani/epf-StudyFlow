@@ -1,105 +1,130 @@
-# Projeto Template: POO com Python + Bottle + JSON
+# StudyFlow
 
-Este é um projeto de template educacional voltado para o ensino de **Programação Orientada a Objetos (POO)** do Prof. Lucas Boaventura, Universidade de Brasília (UnB).
+## 📚 Sobre o Projeto
 
-Utiliza o microframework **Bottle**. Ideal para uso em disciplinas introdutórias de Engenharia de Software ou Ciência da Computação.
+O **StudyFlow** é uma plataforma de gerenciamento de tempo de estudos desenvolvida para ajudar estudantes e profissionais a registrar e otimizar seu tempo de aprendizado. Com uma interface intuitiva e funcionalidades robustas, nossa plataforma permite o acompanhamento detalhado do tempo dedicado aos estudos.
 
-## 💡 Objetivo
-
-Fornecer uma base simples, extensível e didática para construção de aplicações web orientadas a objetos com aplicações WEB em Python, ideal para trabalhos finais ou exercícios práticos.
+![Pagina Inicial](static/img/stdflwpaginainicial.png)
 
 ---
 
-## 🗂 Estrutura de Pastas
+## 🎯 Funcionalidades Principais
 
-```bash
-poo-python-bottle-template/
-├── app.py # Ponto de entrada do sistema
-├── config.py # Configurações e caminhos do projeto
-├── main.py # Inicialização da aplicação
-├── requirements.txt # Dependências do projeto
-├── README.md # Este arquivo
-├── controllers/ # Controladores e rotas
-├── models/ # Definição das entidades (ex: User)
-├── services/ # Lógica de persistência (JSON)
-├── views/ # Arquivos HTML (Bottle Templating)
-├── static/ # CSS, JS e imagens
-├── data/ # Arquivos JSON de dados
-└── .vscode/ # Configurações opcionais do VS Code
+### ⏱️ Registro de Tempo de Estudo
+- **Cronômetro Inteligente**: Controle preciso do tempo de estudo
+- **Sistema de Pausas**: Registro automático de intervalos durante as sessões
+- **Histórico Detalhado**: Armazenamento completo de todas as sessões de estudo
+
+### 📊 Análises e Estatísticas
+- **Dashboard Estatístico**: Visualização gráfica do progresso
+- **Métricas de Desempenho**: Análise de produtividade e consistência
+
+### 🏆 Sistema de Ranking
+- **Leaderboard Competitivo**: Classificação dos usuários com maior tempo de estudo
+- **Comparação Saudável**: Incentivo à produtividade através da competição amigável
+
+### ⚙️ Configurações Avançadas
+- **Gerenciamento de Perfil**: Alteração de email e senha
+- **Controle de Conta**: Opção de deletar conta permanentemente
+
+## 🏗️ Arquitetura e Tecnologias
+
+### Padrão Arquitetural
+- **MVC (Model-View-Controller)**: Separação clara de responsabilidades
+- **Framework Bottle**: Micro-framework web rápido e eficiente para Python
+
+### Backend
+- **Python 3**: Linguagem principal do servidor
+- **JSON**: Persistência de dados leve e eficiente
+
+### Frontend
+- **JavaScript**: Interatividade e dinamismo da interface
+- **CSS**: Estilização e design responsivo
+
+## 📁 Estrutura do Projeto
+
+```
+EPF-STUDYFLOW/
+├── controllers/ 
+│   ├── __init__.py
+│   ├── base_controller.py
+│   ├── home_controller.py
+│   ├── login_controller.py
+│   ├── settings_controller.py
+│   ├── signin_controller.py
+│   └── statistics_controller.py
+├── data/  
+│   ├── sessoes.json
+│   └── usuarios.json
+├── models/
+│   ├── sessao.py
+│   └── usuarios.py
+├── services/
+│   ├── login_service.py
+│   ├── sessao_service.py
+│   ├── settings_service.py
+│   ├── signin_service.py
+│   └── statistics_service.py
+├── static/  
+│   ├── css/
+│   ├── img/
+│   └── js/
+├── views/ 
+│   ├── estatisticas.tpl
+│   ├── helper-final.tpl
+│   ├── home.tpl
+│   ├── layout.tpl
+│   ├── login.tpl
+│   ├── settings.tpl
+│   └── signin.tpl
+├── .gitignore
+├── .pylintrc
+├── app.py         
+├── config.py          
+├── main.py
+├── Makefile
+├── README.md       
+└── requirements.txt    
 ```
 
+## 🔧 Como Rodar o Projeto
 
----
+# 1. Clone o repositório para a sua máquina
+git clone https://github.com/arthur-mariani/epf-StudyFlow.git
 
-## 📁 Descrição das Pastas
+# 2. Navegue até a pasta do projeto
+cd epf-StudyFlow
 
-### `controllers/`
-Contém as classes responsáveis por lidar com as rotas da aplicação. Exemplos:
-- `user_controller.py`: rotas para listagem, adição, edição e remoção de usuários.
-- `base_controller.py`: classe base com utilitários comuns.
-
-### `models/`
-Define as classes que representam os dados da aplicação. Exemplo:
-- `user.py`: classe `User`, com atributos como `id`, `name`, `email`, etc.
-
-### `services/`
-Responsável por salvar, carregar e manipular dados usando arquivos JSON. Exemplo:
-- `user_service.py`: contém métodos como `get_all`, `add_user`, `delete_user`.
-
-### `views/`
-Contém os arquivos `.tpl` utilizados pelo Bottle como páginas HTML:
-- `layout.tpl`: estrutura base com navegação e bloco `content`.
-- `users.tpl`: lista os usuários.
-- `user_form.tpl`: formulário para adicionar/editar usuário.
-
-### `static/`
-Arquivos estáticos como:
-- `css/style.css`: estilos básicos.
-- `js/main.js`: scripts JS opcionais.
-- `img/BottleLogo.png`: exemplo de imagem.
-
-### `data/`
-Armazena os arquivos `.json` que simulam o banco de dados:
-- `users.json`: onde os dados dos usuários são persistidos.
-
----
-
-## ▶️ Como Executar
-
-1. Crie o ambiente virtual na pasta fora do seu projeto:
-```bash
+# 3. Crie um ambiente virtual
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\\Scripts\\activate     # Windows
-```
 
-2. Entre dentro do seu projeto criado a partir do template e instale as dependências:
-```bash
+# 4. Ative o ambiente virtual
+# No Windows (CMD):
+venv\\Scripts\\activate
+# No macOS/Linux:
+source venv/bin/activate
+
+# 5. Instale as dependências
 pip install -r requirements.txt
-```
 
-3. Rode a aplicação:
-```bash
+# 6. Delete qualquer base de dados antiga (se existir) para garantir uma estrutura limpa e execute a aplicação. O banco será criado automaticamente.
 python main.py
-```
 
-4. Accese sua aplicação no navegador em: [http://localhost:8080](http://localhost:8080)
-
----
-
-## ✍️ Personalização
-Para adicionar novos modelos (ex: Atividades):
-
-1. Crie a classe no diretório **models/**.
-
-2. Crie o service correspondente para manipulação do JSON.
-
-3. Crie o controller com as rotas.
-
-4. Crie as views .tpl associadas.
+# 7. Abra o seu navegador e acesse http://localhost:8080
 
 ---
 
-## 🧠 Autor e Licença
-Projeto desenvolvido como template didático para disciplinas de Programação Orientada a Objetos, baseado no [BMVC](https://github.com/hgmachine/bmvc_start_from_this).
-Você pode reutilizar, modificar e compartilhar livremente.
+## 📐 UML - Diagrama de Classes
+
+![Diagrama de Classes](static/img/diag.png)
+
+---
+
+**StudyFlow** - Transformando tempo em conhecimento! 📖⏰
+
+---
+
+👥 Autores
+[Arthur Mariani de Andrade da Cruz]
+[Matheus Rodrigues Pontes]
+[Lucas Araújo Lima]
