@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>Configurações - StudyFlow</title>
+    <link rel="icon" href="/static/img/favicon.ico?v=1" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; display: flex; height: 100vh; background-color: #f4f7f6; color: #333; }
         
         .sidebar { width: 250px; background-color: #fff; border-right: 1px solid #ddd; padding: 20px; display: flex; flex-direction: column; }
-        .logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
-        .logo-area img { width: 40px; }
-        .logo-text { font-size: 22px; font-weight: bold; color: #247B7B; }
-        
+        .logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .logo-area img { width: 120px; }
         .menu-item { display: flex; align-items: center; padding: 12px 15px; color: #555; text-decoration: none; border-radius: 8px; margin-bottom: 8px; transition: 0.3s; font-size: 16px; }
         .menu-item:hover { background-color: #e0f2f1; color: #247B7B; }
         .menu-item.active { background-color: #247B7B; color: white; }
@@ -55,8 +56,8 @@
 <body>
 
     <div class="sidebar">
-        <div class="logo-area">
-            <span class="logo-text">Study Flow</span>
+          <div class="logo-area">
+            <img src="/static/img/Logo.png">
         </div>
         <a href="/home" class="menu-item"><i class="fas fa-home"></i> Início</a>
         <a href="/estatisticas" class="menu-item"><i class="fas fa-chart-bar"></i> Estatísticas</a>
