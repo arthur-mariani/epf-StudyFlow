@@ -17,8 +17,8 @@ class HomeController(BaseController):
         usuario_logado = request.get_cookie("usuario_logado", secret='chave_secreta_do_projeto')
 
         if usuario_logado:
-
-            return self.render('home', user=usuario_logado)
+            dados_ranking = self.sessao_service.obter_ranking_geral()
+            return self.render('home', user=usuario_logado, ranking=dados_ranking)
         else:
             # Se não tem cookie, redireciona para o login
             return self.redirect('/login')
