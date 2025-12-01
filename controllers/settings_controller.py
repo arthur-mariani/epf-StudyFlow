@@ -34,12 +34,15 @@ def update_email():
     if not email_valido:
         return template('settings', erro="Domínio inválido! Use: gmail, hotmail, outlook, yahoo ou live.")
 
-    senha_atual_hash = hashlib.sha256(senha_atual.encode()).hexdigest()
-
     dao = UsuarioDAO()
     usuarios = dao.listar()
     usuario_atual = next((u for u in usuarios if u['gmail'] == usuario_gmail), None)
-
+    
+    if next((u for u in usuarios if u['gmail'] == novo_gmail), None):
+         return template('settings', erro="Email já existe!")
+    
+    senha_atual_hash = hashlib.sha256(senha_atual.encode()).hexdigest()
+    
     if usuario_atual and usuario_atual['senha_hash'] == senha_atual_hash:
         novo_user = Usuario(
             id=usuario_atual['id'],
@@ -78,12 +81,14 @@ def update_password():
         mensagem = " | ".join(erros)
         return template('settings', erro=mensagem)
 
-    senha_atual_hash = hashlib.sha256(senha_atual.encode()).hexdigest()
+    
 
     dao = UsuarioDAO()
     usuarios = dao.listar()
     usuario_atual = next((u for u in usuarios if u['gmail'] == usuario_gmail), None)
-
+    
+    senha_atual_hash = hashlib.sha256(senha_atual.encode()).hexdigest()
+    
     if usuario_atual and usuario_atual['senha_hash'] == senha_atual_hash:
         nova_senha_hash = hashlib.sha256(nova_senha.encode()).hexdigest()
 
