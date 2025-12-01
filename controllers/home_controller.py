@@ -40,11 +40,11 @@ class HomeController(BaseController):
              return {"status": "erro", "msg": "Não logado"}
 
         segundos = dados.get('segundos')
-        materia = dados.get('materia')
+        modo = dados.get('modo')
         
-        self.sessao_service.salvar_tempo(usuario_gmail, segundos, materia)
+        self.sessao_service.salvar_tempo(usuario_gmail, segundos, modo)
 
-        print(f"Salvando sessão: {usuario_gmail} estudou {segundos}s de {materia}")
+        print(f"Salvando sessão: {usuario_gmail} estudou {segundos}s no modo {modo}")
         return {"status": "sucesso"}
     
 home_routes = Bottle()
