@@ -311,17 +311,25 @@
             </div>
 
             <div class="card">
-                <h3>Ranking Semanal</h3>
+                <div class="ranking-title">🏆 Ranking Geral</div>
+                
                 <ul class="ranking-list">
-                    <li class="ranking-item">
-                        <div><span class="rank-pos">1º</span> Ana Silva</div>
-                        <strong>12h 30m</strong>
-                    </li>
-                    <li class="ranking-item">
-                        <div><span class="rank-pos">2º</span> Carlos (Você)</div>
-                        <strong>08h 15m</strong>
-                    </li>
-                    </ul>
+                    % if not ranking:
+                        <li style="padding: 20px; text-align: center; color: #999;">
+                            Ninguém estudou ainda.<br>Seja o primeiro!
+                        </li>
+                    % end
+
+                    % for item in ranking:
+                        <li class="ranking-item">
+                            <div>
+                                <span class="rank-pos">{{item['posicao']}}º</span> 
+                                <span class="rank-name">{{item['nome']}}</span>
+                            </div>
+                            <span class="rank-time">{{item['tempo']}}</span>
+                        </li>
+                    % end
+                </ul>
             </div>
 
         </div>
